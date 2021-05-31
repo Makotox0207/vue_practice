@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Directive</title>
 </head>
 <body>
   <script src="vue.js"></script>
@@ -22,8 +22,14 @@
     <div v-html="html"></div>
     <!-- => # h1です -->
 
-    <!-- v-bind 要素に含まれる属性（href=””など）を動的に設定・変更することが出来る設定方法-->
-    <a v-bind:href="url">Google</a>
+    <!-- v-bind:property 要素に含まれる属性（href=””など）を動的に設定・変更することが出来る設定方法-->
+    <!-- : で省略可 -->
+    <a :[attribute]="url">Google</a>
+
+    <!-- v-bind="{}"でオブジェクト形式可 -->
+    <a v-bind="{href: urlTwitter, id: number}">Twiiter</a>
+    <a v-bind="facebookObject">facebook</a>
+
 
   </div>
   <script>
@@ -32,7 +38,15 @@
       data: {
       	message: 'helloworld!',
         html: '<h1>h1です<h1>',
-        url: 'https://google.com'
+        url: 'https://google.com',
+        urlTwitter: 'https://twitter.com',
+        attribute: 'href',
+        number: 31,
+        // ここでもオブジェクトにできる
+        facebookObject: {
+          href: 'https://facebook.com',
+          id: 22
+        }
       },
       methods: {
         sayHi(){
