@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js"></script>
+
+  <div id="app">
+    <!-- v-once 一度だけ描画 -->
+    <p v-once>{{message}}</p>
+    <p>{{sayHi()}}</p>
+
+    <!-- v- ディレクティブ  vueにおきる特別な属性-->
+    <p v-text="message"></p>
+    <!--  => hello vue -->
+
+    <!-- v-html -->
+    <div v-html="html"></div>
+    <!-- => # h1です -->
+
+    <!-- v-bind 要素に含まれる属性（href=””など）を動的に設定・変更することが出来る設定方法-->
+    <a v-bind:href="url">Google</a>
+
+  </div>
+  <script>
+    new Vue({
+	    el: '#app',
+      data: {
+      	message: 'helloworld!',
+        html: '<h1>h1です<h1>',
+        url: 'https://google.com'
+      },
+      methods: {
+        sayHi(){
+          this.message = 'hello vue'
+          return 'Hi';
+        }
+      }
+    })
+  </script>
+</body>
+</html>
