@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch</title>
+</head>
+<body>
+  <script src="vue.js"></script>
+
+  <div id="app">
+    <p>{{counter}}</p>
+    <p>{{ lessThanThree }}</p>
+    <button @click="counter += 1">up</button>
+  </div>
+  <script>
+    new Vue({
+	    el: '#app',
+      data: {
+      	counter: 0
+      },
+      computed: {
+        lessThanThree: function (){
+          return this.counter > 3 ? '3以上' : '3以下';
+        }
+      },
+      // 3秒後に0に戻す
+      watch: {
+        counter: function(){
+          //コールバック関数のthisはwindowオブジェクトになってしまうためVueインスタンスのthisを参照できない。
+          // そのため、setTimeoutでのコールバック関数でthisを使う場合変数に代入する
+          var vm = this;
+          setTimeout(function(){
+            vm.counter = 0;
+          }, 3000)
+        }
+      }
+    })
+  </script>
+  
+</body>
+</html>
