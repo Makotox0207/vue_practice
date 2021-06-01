@@ -17,15 +17,17 @@
 <body>
   <script src="vue.js"></script>
   <div id="app">
-    <!-- {{対応づける }}-->
     <h1 :class="classObject">Hello World</h1>
     <button @click="isActive = !isActive">切り替え</button>
+    <!-- 配列を使って適応させたいクラスを並べる -->
+    <h1 :class="[{red: isActive}, bg]">Hello World!!</h1>
   </div>
 <script>
   new Vue({
     el: '#app',
     data: {
-      isActive: true
+      isActive: true,
+      bg: 'bg-blue'
     },
     computed: {
       classObject: function(){
