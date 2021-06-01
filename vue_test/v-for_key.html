@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js"></script>
+  <div id="app">
+    <ul>
+      <!-- keyがないとliのところだけ消えてinputは更新されないのでkeyをつけて一意にする -->
+      <!-- templateタグは出力されると消えるので、keyを使う時はdivにする -->
+      <!-- indexをkeyにしてしまうと、移り変わった時にindexが変更されてしまうので、エイリアスで指定する -->
+
+      <div v-for="fruit in fruits" :key="fruit">
+        <li>{{fruit}}</li>
+        <input type="text">
+      </div>
+    </ul>
+    <button @click="remove">先頭を削除</button>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        fruits: ['apple', 'banana', 'grape']
+      },
+      methods: {
+        remove: function(){
+          this.fruits.shift()
+        }
+      }
+    })
+  </script>
+</body>
+</html>

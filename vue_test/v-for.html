@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V-for</title>
+</head>
+<body>
+  <script src="vue.js"></script>
+  <div id="app">
+    <ul>
+      <li v-for="(fruit, index) in fruits">({{index}}){{fruit}}</li>
+    </ul>
+    <ul>
+      <!-- 第一引数に値 第二引数にキー 第三引数にindex -->
+      <li v-for="(value, key, index) in object">({{index}}){{key}} - {{value}}</li>
+    </ul>
+    <ul>
+      <!-- templateで囲って、liとhrを繰り返す -->
+      <template v-for="fruit in fruits">
+        <li>{{fruit}}</li>
+        <hr>
+      </template>
+    </ul>
+    <ul>
+      <!-- 整数も繰り返せる(ここでは1~10) -->
+      <!-- of でも一緒 -->
+      <li v-for="n of 10">{{n}}</li>
+    </ul>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        fruits: ['apple', 'banana', 'grape'],
+        object: {
+          firstName: 'Taro',
+          lastName: 'Tanaka',
+          age: 21
+        }
+      }
+    })
+  </script>
+</body>
+</html>
