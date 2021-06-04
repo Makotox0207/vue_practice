@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="currentComponent = 'Home'">Home</button>
+    <button @click="currentComponent = 'About'">About</button>
+    <!-- 動的にAboutまたはHomeに変更 -->
+    <component :is="currentComponent"></component>
+    <!-- 一緒 -->
+    <About v-if="currentComponent === 'About'"></About>
+    <Home v-if="currentComponent === 'Home'"></Home>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import About from "./components/About.vue";
+import Home from "./components/Home.vue";
 
 export default {
-  name: 'App',
+  data(){
+    return {
+      currentComponent: "Home"
+    };
+  },
   components: {
-    HelloWorld
+    About,
+    Home
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
