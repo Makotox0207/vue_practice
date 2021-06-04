@@ -7,6 +7,10 @@
     <!-- 一緒 -->
     <About v-if="currentComponent === 'About'"></About>
     <Home v-if="currentComponent === 'Home'"></Home>
+    <!-- keep-aliveをつけると全てのデータがキャッシュされる -->
+    <keep-alive>
+      <component :is="currentComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
