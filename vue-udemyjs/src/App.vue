@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding: 10rem;">
     <button @click="currentComponent = 'Home'">Home</button>
     <button @click="currentComponent = 'About'">About</button>
     <!-- 動的にAboutまたはHomeに変更 -->
@@ -11,6 +11,15 @@
     <keep-alive>
       <component :is="currentComponent"></component>
     </keep-alive>
+    <div>
+      <label for="title">タイトル</label>
+      <input id="title" type="text" v-model="formData.title">
+      <p>{{formData.title}}</p>
+      <select v-model="formData.location">
+        <option v-for="location in locations" :key="location">{{location}}</option>
+      </select>
+      <p>{{formData.location}}</p>
+    </div>
   </div>
 </template>
 
@@ -22,7 +31,12 @@ import Home from "./components/Home.vue";
 export default {
   data(){
     return {
-      currentComponent: "Home"
+      currentComponent: "Home", 
+      locations: ["東京", "大阪", "札幌"],
+      formData: {
+        title: "タイトル",
+        location: []
+      }
     };
   },
   components: {
