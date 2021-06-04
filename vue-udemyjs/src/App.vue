@@ -11,15 +11,13 @@
     <keep-alive>
       <component :is="currentComponent"></component>
     </keep-alive>
-    <div>
-      <label for="title">タイトル</label>
-      <input id="title" type="text" v-model="formData.title">
-      <p>{{formData.title}}</p>
-      <select v-model="formData.location">
-        <option v-for="location in locations" :key="location">{{location}}</option>
-      </select>
-      <p>{{formData.location}}</p>
-    </div>
+
+    <!-- $eventで$emitのイベント(第2引数)を受け取る -->
+    <!-- <EventTitle
+      :value="formData.title"
+      @input="formData.title = $event">
+    </EventTitle> -->
+    <EventTitle v-model="formData.title"></EventTitle>
   </div>
 </template>
 
@@ -27,6 +25,7 @@
 
 import About from "./components/About.vue";
 import Home from "./components/Home.vue";
+import EventTitle from "./components/EventTitle.vue"
 
 export default {
   data(){
@@ -41,7 +40,8 @@ export default {
   },
   components: {
     About,
-    Home
+    Home,
+    EventTitle
   }
 }
 </script>
