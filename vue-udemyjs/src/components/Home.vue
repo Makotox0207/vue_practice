@@ -1,11 +1,21 @@
 <template>
+<div>
   <!-- 複数の値を渡す時はオブジェクトにする -->
   <!-- 引数はv-directiveName:引数 -->
   <p v-border:solid.round.shadow="{width: '5px', color: 'red'}">home</p>
+  <p>{{ title | upperCase }}</p>
+  <p>{{subtitle | upperCase }}</p>
+</div>
 </template>
 
 <script>
   export default{
+    data(){
+      return {
+        title: "Hello",
+        subtitle: "World"
+      }
+    },
     // directives: {} ローカルにディレクティブを追加する
     directives:  {
       border(el, binding){
