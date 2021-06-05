@@ -11,6 +11,13 @@ Vue.directive("border", function(el, binding) {
   el.style.borderColor = binding.value.color;
   // binding.arg 引数を取る ※argument=引数
   el.style.borderStyle = binding.arg;
+  // if(binding.modiriers.修飾子){} if文で適応させる ※modifier=修飾子
+  if (binding.modifiers.round) {
+    el.style.borderRadius = "0.5rem";
+  }
+  if (binding.modifiers.shadow) {
+    el.style.boxShadow = "0.2px 5px rgba(0, 0, 0, 0.26";
+  }
 })
 
 new Vue({
