@@ -5,22 +5,30 @@
   <p v-border:solid.round.shadow="{width: '5px', color: 'red'}">home</p>
   <p>{{ title | lowerCase }}</p>
   <p>{{subtitle | lowerCase }}</p>
+  <p>{{number}}</p>
+  <button @click="number++">プラス1</button>
+  <Number></Number>
 </div>
 </template>
 
 <script>
+import Number from "./Number.vue"
+import {tokyoNumber} from "@/tokyoNumber"
   export default{
-    data(){
-      return {
-        title: "Hello",
-        subtitle: "World"
-      }
-    },
-    filters: {
-      lowerCase(value){
-        return value.toLowerCase();
-      }
-    },
+    mixins: [tokyoNumber],
+    // data(){
+    //   return {
+    //     title: "Hello",
+    //     subtitle: "World",
+    //     number: 0
+    //   }
+    // },
+    // filters: {
+    //   lowerCase(value){
+    //     return value.toLowerCase();
+    //   }
+    // },
+
     // directives: {} ローカルにディレクティブを追加する
     directives:  {
       border(el, binding){
@@ -39,6 +47,9 @@
           el.style.boxShadow = "0.2px 5px rgba(0, 0, 0, 0.26";
         }
       } 
+    },
+    components: {
+      Number
     }
   }
 </script>

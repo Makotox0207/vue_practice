@@ -3,6 +3,7 @@
     <button @click="currentComponent = 'Home'">Home</button>
     <button @click="currentComponent = 'About'">About</button>
     <component :is="currentComponent"></component>
+    <Number></Number>
     <!-- <About v-if="currentComponent === 'About'"></About> -->
     <!-- <Home></Home> -->
   </div>
@@ -12,7 +13,7 @@
 
 import About from "./components/About.vue";
 import Home from "./components/Home.vue";
-import EventTitle from "./components/EventTitle.vue"
+import EventTitle from "./components/EventTitle.vue";
 
 export default {
   data(){
