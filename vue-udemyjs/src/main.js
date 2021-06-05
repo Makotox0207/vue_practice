@@ -6,8 +6,9 @@ Vue.config.productionTip = false
 Vue.directive("border", function(el, binding) {
   // elはhtml要素を指定する (pタグを指定)
   el.style.border = "solid black 2px";
-  // binding.value データを受け取る
-  el.style.borderWidth = binding.value;
+  // binding.value.key 複数の値を受け取る
+  el.style.borderWidth = binding.value.width;
+  el.style.borderColor = binding.value.color;
 })
 
 new Vue({
