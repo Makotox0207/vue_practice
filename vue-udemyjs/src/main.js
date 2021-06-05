@@ -9,6 +9,8 @@ Vue.directive("border", function(el, binding) {
   // binding.value.key 複数の値を受け取る
   el.style.borderWidth = binding.value.width;
   el.style.borderColor = binding.value.color;
+  // binding.arg 引数を取る ※argument=引数
+  el.style.borderStyle = binding.arg;
 })
 
 new Vue({
