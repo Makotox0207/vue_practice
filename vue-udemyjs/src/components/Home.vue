@@ -3,8 +3,8 @@
   <!-- 複数の値を渡す時はオブジェクトにする -->
   <!-- 引数はv-directiveName:引数 -->
   <p v-border:solid.round.shadow="{width: '5px', color: 'red'}">home</p>
-  <p>{{ title | upperCase }}</p>
-  <p>{{subtitle | upperCase }}</p>
+  <p>{{ title | lowerCase }}</p>
+  <p>{{subtitle | lowerCase }}</p>
 </div>
 </template>
 
@@ -14,6 +14,11 @@
       return {
         title: "Hello",
         subtitle: "World"
+      }
+    },
+    filters: {
+      lowerCase(value){
+        return value.toLowerCase();
       }
     },
     // directives: {} ローカルにディレクティブを追加する

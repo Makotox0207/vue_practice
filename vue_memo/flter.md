@@ -1,6 +1,6 @@
 # filter
 
-
+## filter グローバル登録
 ```js
 // main.js
 import Vue from 'vue'
@@ -18,6 +18,7 @@ new Vue({
 ```
 
 ```html
+<!-- Home.vue -->
 <template>
 <div>
 <!-- {{data | filterName}} -->
@@ -32,6 +33,35 @@ new Vue({
       return {
         title: "Hello",
         subtitle: "World"
+      }
+    }
+  }
+</script>
+
+```
+
+## filter ローカル登録
+
+```html
+<!-- Home.vue -->
+<template>
+<div>
+  <p>{{ title | lowerCase }}</p>
+  <p>{{subtitle | lowerCase }}</p>
+</div>
+</template>
+
+<script>
+  export default{
+    data(){
+      return {
+        title: "Hello",
+        subtitle: "World"
+      }
+    },
+    filters: {
+      lowerCase(value){
+        return value.toLowerCase();
       }
     }
   }
