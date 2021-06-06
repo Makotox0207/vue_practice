@@ -4,6 +4,8 @@ import Home from "./views/Home.vue";
 import Users from "./views/Users.vue";
 import UsersPosts from "./views/UsersPosts.vue";
 import UsersProfile from "./views/UsersProfile.vue";
+import HeaderHome from "./views/HeaderHome.vue";
+import HeaderUsers from "./views/HeaderUsers.vue";
 
 // Vue.use() Vueのプラグインを使う
 Vue.use(Router);
@@ -13,9 +15,18 @@ export default new Router({
   // デフォルトではmodeが"hash"になっているので"history"に直すurlにある#が消える
   mode: "history",
   routes: [
-    { path: "/", component: Home }, 
+    { path: "/", 
+      components: {
+        default: Home,
+        // App.vueで設定したnameにコンポーネントが適応される
+        header: HeaderHome
+      }, 
+    }, 
     { path: "/users/:id", 
-      component: Users, 
+      components: {
+        default: Users,
+        header: HeaderUsers
+      }, 
       // props :idをパラメータとして渡せる
       props: true,
       children: [
