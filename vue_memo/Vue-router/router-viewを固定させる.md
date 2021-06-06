@@ -33,7 +33,12 @@ export default new Router({
       components: {
         default: Users,
         header: HeaderUsers
-      };
+      },
+      // 名前付きviewごとにpropsを指定しないとidを受け取れない
+      props: {
+        default: true,
+        header: false
+      },
     }]
 });
 

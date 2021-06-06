@@ -28,7 +28,11 @@ export default new Router({
         header: HeaderUsers
       }, 
       // props :idをパラメータとして渡せる
-      props: true,
+      // 名前付きviewを使うときは名前付きviewごとに指定する
+      props: {
+        default: true,
+        header: false
+      },
       children: [
         { path: "posts", component: UsersPosts, name: "users-id-posts"},
         { path: "profile", component: UsersProfile, name: "users-id-profile"}
