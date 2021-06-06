@@ -46,7 +46,8 @@ new Vue({
 ```
 ## App.vueで表示
 
-- `<router-view></router-view>`でルータで設定した物をURLごとに表示できる
+- `<router-view></router-view>`でルータで設定した物をURLごとに表示できる(動的コンポーネントになる)
+- しかし、同じindex.htmlを返す→jsファイルで中身をURLを解析して表示するという流れになっている
 ```js
 <template>
   <router-view></router-view>

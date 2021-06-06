@@ -8,5 +8,7 @@ Vue.use(Router);
 
 // export defalt, main.jsで読み込む  vue-routerを読み込む
 export default new Router({
+  // デフォルトではmodeが"hash"になっているので"history"に直すurlにある#が消える
+  mode: "history",
   routes: [{path: "/", component: Home}, {path: "/users", component: Users}]
 });
