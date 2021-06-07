@@ -21,6 +21,10 @@ export default new Router({
         // App.vueで設定したnameにコンポーネントが適応される
         header: HeaderHome
       }, 
+      // ルートパスに戻れない
+      beforeEnter(to, from, next){
+        next(false);
+      }
     }, 
     { path: "/users/:id", 
       components: {
