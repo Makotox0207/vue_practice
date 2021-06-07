@@ -9,6 +9,7 @@ export default new Vuex.Store({
   },
   getters: {
     // Vuex側でcountを2倍するものという処理を返す
-    doubleCount: state => state.count * 2
+    doubleCount: state => state.count * 2,
+    tripleCount: state => state.count * 3
   }
 });
