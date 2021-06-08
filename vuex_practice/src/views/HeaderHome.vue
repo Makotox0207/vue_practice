@@ -13,7 +13,9 @@ import {mapGetters} from "vuex";
 
 export default {
   computed: {
-    // スプレッド構文 (...) を使うと、配列式や文字列などの反復可能オブジェクトを、0 個以上の引数 (関数呼び出しの場合) や要素 (配列リテラルの場合) を期待された場所で展開したり、オブジェクト式を、0 個以上のキーと値のペア (オブジェクトリテラルの場合) を期待された場所で展開したりすることができる。
+    // スプレッド演算子(...) 配列やオブジェクトの値を展開するオペレーター
+    // const foo = [1, 2];
+    // const bar = [...foo]; //[1, 2]
     ...mapGetters(["doubleCount", "tripleCount"]),
     count(){
       return this.$store.state.count;
