@@ -13,10 +13,10 @@
 export default {
   methods: {
     increment(){
-      this.$store.state.count++;
+      this.$store.commit('increment', 1);
     },
     decrement(){
-      this.$store.state.count--;
+      this.$store.commit('decrement', 1);
     },
     toUsers(){
       this.$router.push({
