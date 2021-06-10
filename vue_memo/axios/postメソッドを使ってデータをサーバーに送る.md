@@ -1,3 +1,6 @@
+# postメソッドを使ってデータをサーバーに送る
+
+```html
 <template>
   <div id="app">
     <h3>掲示板に投稿する</h3>
@@ -51,15 +54,4 @@ import axios from 'axios';
     }
   }
 </script>
-
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+```
