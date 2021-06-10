@@ -6,10 +6,15 @@
     <br><br>
     <label for="comment">コメント：</label>
     <textarea id="comment" v-model="comment"></textarea>
-    <h2>掲示板</h2>
     <br><br>
     <!-- クリックしたらサーバーにデータを送る -->
     <button @click="createComment">サーバーにコメントを送る</button>
+    <h2>掲示板</h2>
+    <div v-for="post in posts" :key="post.name">
+      <div>name:{{post.fields.name.stringValue}}</div>
+      <div>comment:{{post.fields.comment.stringValue}}</div>
+
+    </div>
   </div>
 </template>
 
@@ -20,8 +25,22 @@ import axios from 'axios';
     data(){
       return {
         name: "",
-        comment: ""
+        comment: "",
+        // リストレンダリングをするために配列を用意する
+        posts :[]
       };
+    },
+    // 最初のロード時にデータを取得する
+    created(){
+      // axios.get(取得したいサーバーのurl, リクエストの設定)
+      // promiseを返す
+      axios.get('https://firestore.googleapis.com/v1/projects/vuejs-http-40386/databases/(default)/documents/comments',
+      )
+      .then( response => {
+        // 返ってきた値をpostsに代入
+        this.posts = response.data.documents;
+        console.log(response);
+      });
     },
     methods: {
       createComment(){
